@@ -40,10 +40,10 @@ body {
     /* background: #e0e0e0; */
 }
 
-html, body, footer {
-    height: 100%;
+html, body, footer, nav{
+    
     margin: 0;
-    background: linear-gradient(to bottom, #8f8f8f, #484848);
+    background: linear-gradient(to bottom, #d1d0d0, #a9a9a9);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
