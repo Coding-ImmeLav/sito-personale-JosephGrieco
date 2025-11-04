@@ -4,7 +4,7 @@
     align-items: center;
     text-align: center;
     height: 90vh;
-    background-color: azure;
+    /* background: linear-gradient(to top, #e0e0e0, #a0a0a0); */
 }
 
 .bio {
@@ -25,4 +25,26 @@
 
 .btn {
     width: auto;
+}
+
+.logo {
+    width: 50%;
+}
+
+footer {
+    background: linear-gradient(to bottom, #e0e0e0, #a0a0a0);
+    padding: 5vh;
+}
+
+body {
+    /* background: #e0e0e0; */
+}
+
+html, body, footer {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(to bottom, #8f8f8f, #484848);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
