@@ -10,7 +10,7 @@
 .bio {
     height: 30vh;
     display: flex;
-    align-items: center;  
+    align-items: center;
 }
 
 .foglio {
@@ -36,12 +36,11 @@ footer {
     padding: 5vh;
 }
 
-body {
-    /* background: #e0e0e0; */
-}
+html,
+body,
+footer,
+nav {
 
-html, body, footer, nav{
-    
     margin: 0;
     background: linear-gradient(to bottom, #d1d0d0, #a9a9a9);
     background-attachment: fixed;
