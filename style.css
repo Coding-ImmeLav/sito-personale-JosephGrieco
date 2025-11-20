@@ -1,49 +1,403 @@
+/* Reset e variabili colore */
+:root {
+    --primary-red: #dc2626;
+    --dark-red: #991b1b;
+    --light-red: #ef4444;
+    --dark-gray: #1f2937;
+    --darker-gray: #111827;
+    --medium-gray: #374151;
+    --light-gray: #6b7280;
+    --accent-gray: #9ca3af;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    background: linear-gradient(135deg, var(--darker-gray) 0%, var(--dark-gray) 100%);
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e5e7eb;
+}
+
+/* Navbar styling */
+nav {
+    background: linear-gradient(90deg, var(--darker-gray) 0%, var(--dark-gray) 100%) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--primary-red);
+}
+
+.navbar-brand {
+    color: var(--primary-red) !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: var(--light-red) !important;
+    transform: scale(1.05);
+}
+
+.nav-link {
+    color: var(--accent-gray) !important;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-red);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+.nav-link:hover {
+    color: var(--primary-red) !important;
+}
+
+.nav-link.active {
+    color: var(--primary-red) !important;
+}
+
+.bi-rocket-takeoff-fill {
+    color: var(--primary-red);
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+}
+
+.bi-rocket-takeoff-fill:hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 4px 6px var(--primary-red));
+}
+
+/* Sezione Benvenuto */
 .benvenuto {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     height: 90vh;
-    /* background: linear-gradient(to top, #e0e0e0, #a0a0a0); */
+    background: linear-gradient(135deg, var(--darker-gray) 0%, var(--dark-gray) 50%, var(--darker-gray) 100%);
+    position: relative;
+    overflow: hidden;
 }
 
+.benvenuto::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--primary-red) 0%, transparent 70%);
+    opacity: 0.1;
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.1; }
+    50% { transform: scale(1.2); opacity: 0.15; }
+}
+
+.benvenuto h2 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 1s ease;
+}
+
+.benvenuto p {
+    font-size: 1.8rem;
+    color: var(--primary-red);
+    font-weight: 300;
+    animation: fadeInUp 1s ease 0.3s backwards;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sezione Bio */
 .bio {
-    height: 30vh;
+    min-height: 30vh;
     display: flex;
     align-items: center;
+    padding: 4rem 2rem;
+    background: var(--dark-gray);
+    border-top: 3px solid var(--primary-red);
+    border-bottom: 3px solid var(--primary-red);
+}
+
+.bio h3 {
+    color: var(--primary-red);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.bio h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-red);
+}
+
+.bio p, .bio ul {
+    color: var(--accent-gray);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.bio ul {
+    list-style: none;
+}
+
+.bio ul li {
+    padding: 0.5rem 0;
+}
+
+/* Sezione Passioni */
+.passioni {
+    padding: 4rem 2rem;
+    background: var(--darker-gray);
+}
+
+.passioni h3 {
+    color: #fff;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.passioni h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--primary-red);
+}
+
+.card {
+    background: var(--dark-gray) !important;
+    border: 2px solid var(--medium-gray) !important;
+    border-radius: 15px !important;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    margin: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-red) !important;
+    box-shadow: 0 8px 20px rgba(220, 38, 38, 0.4);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.cardheader {
+    padding: 0.75rem;
+    background: var(--medium-gray);
+}
+
+.badge {
+    background-color: var(--primary-red) !important;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+}
+
+.card-body {
+    background: var(--dark-gray);
+    padding: 1.5rem;
+}
+
+.card-text {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.card-footer {
+    background: var(--dark-gray);
+    border-top: 1px solid var(--medium-gray);
+    padding: 1rem;
+}
+
+.btn-outline-success {
+    border-color: var(--primary-red) !important;
+    color: var(--primary-red) !important;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--primary-red) !important;
+    color: white !important;
+    transform: scale(1.05);
+}
+
+/* Sezione CV */
+.cv {
+    margin: 5vh 0;
+    padding: 3rem 1rem;
 }
 
 .foglio {
-    border: 0.5px solid rgb(61, 61, 61);
-    padding: 5%;
+    border: 2px solid var(--primary-red);
+    padding: 3rem;
+    background: var(--dark-gray);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.cv {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+.foglio h3 {
+    color: var(--primary-red);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.btn {
-    width: auto;
+.foglio h4 {
+    color: var(--light-red);
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.foglio p {
+    color: var(--accent-gray);
+    line-height: 1.8;
+}
+
+.foglio hr {
+    border-color: var(--medium-gray);
+    opacity: 0.5;
+    margin: 1.5rem 0;
+}
+
+.foglio b {
+    color: #fff;
+}
+
+.foglio i {
+    color: var(--light-gray);
+}
+
+.btn-primary {
+    background-color: var(--primary-red) !important;
+    border-color: var(--primary-red) !important;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-red) !important;
+    border-color: var(--dark-red) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(220, 38, 38, 0.4);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(to top, var(--darker-gray) 0%, var(--dark-gray) 100%);
+    padding: 3rem 2rem;
+    border-top: 3px solid var(--primary-red);
+    margin-top: 3rem;
+}
+
+footer p {
+    color: var(--accent-gray);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+footer b {
+    color: var(--primary-red);
+}
+
+footer svg {
+    color: var(--primary-red);
 }
 
 .logo {
     width: 50%;
+    filter: brightness(0.9);
+    transition: all 0.3s ease;
 }
 
-footer {
-    background: linear-gradient(to bottom, #e0e0e0, #a0a0a0);
-    padding: 5vh;
+.logo:hover {
+    filter: brightness(1.1) drop-shadow(0 0 10px var(--primary-red));
+    transform: scale(1.05);
 }
 
-html,
-body,
-footer,
-nav {
+/* Responsive */
+@media (max-width: 768px) {
+    .benvenuto h2 {
+        font-size: 2.5rem;
+    }
+    
+    .benvenuto p {
+        font-size: 1.3rem;
+    }
+    
+    .passioni h3 {
+        font-size: 2rem;
+    }
+    
+    .card {
+        margin: 1rem 0;
+    }
+    
+    .foglio {
+        padding: 2rem;
+    }
+}
 
-    margin: 0;
-    background: linear-gradient(to bottom, #d1d0d0, #a9a9a9);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bottonecv {
+    width: 14%;
 }
